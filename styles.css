@@ -1,0 +1,547 @@
+/* متغیرهای رنگ */
+:root {
+    --primary: #3b82f6;
+    --primary-dark: #2563eb;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --accent: #ef4444;
+    --gray: #6b7280;
+    --gray-light: #f8fafc;
+    --gray-border: #e2e8f0;
+    --dark: #1e293b;
+}
+
+/* ریست استایل‌ها */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 10px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* استایل‌های هدر */
+header {
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.header-content h1 {
+    color: var(--dark);
+    font-size: 1.4rem;
+    font-weight: 800;
+}
+
+.wallet-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.connect-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-family: 'Vazirmatn', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.connect-btn:hover:not(:disabled) {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+.connect-btn:disabled {
+    background: var(--gray);
+    cursor: not-allowed;
+    transform: none;
+}
+
+.wallet-address {
+    background: var(--gray-light);
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    font-weight: 700;
+    color: var(--dark);
+    font-size: 0.8rem;
+    border: 1px solid var(--gray-border);
+}
+
+/* استایل‌های محتوای اصلی */
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.user-panel, .tree-panel {
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.user-panel h2, .tree-panel h2 {
+    color: var(--dark);
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 8px;
+}
+
+/* استایل‌های اطلاعات کاربر */
+.user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--gray-border);
+    font-size: 0.9rem;
+}
+
+.info-label {
+    color: var(--gray);
+    font-weight: 600;
+}
+
+.info-value {
+    color: var(--dark);
+    font-weight: 700;
+    background: var(--gray-light);
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.8rem;
+    border: 1px solid var(--gray-border);
+}
+
+/* کنترل‌ها */
+.controls {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.control-btn {
+    background: var(--gray-light);
+    border: 1px solid var(--gray-border);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    flex: 1;
+    min-width: 100px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.control-btn:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    transform: translateY(-1px);
+}
+
+/* استایل‌های درخت */
+.tree-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.stats {
+    display: flex;
+    gap: 15px;
+    font-size: 0.9rem;
+    color: var(--gray);
+}
+
+.stats strong {
+    color: var(--primary);
+}
+
+.tree-container {
+    background: var(--gray-light);
+    border-radius: 8px;
+    border: 2px dashed var(--gray-border);
+    min-height: 600px;
+    overflow: auto;
+    position: relative;
+}
+
+/* استایل‌های درخت باینری */
+.binary-tree {
+    position: relative;
+    width: 100%;
+    min-height: 600px;
+    padding: 20px;
+}
+
+.tree-connections {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.tree-nodes {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 600px;
+    z-index: 2;
+}
+
+.tree-node {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+/* نودها */
+.node {
+    background: white;
+    border: 2px solid var(--primary);
+    border-radius: 10px;
+    padding: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 140px;
+    position: relative;
+}
+
+.node:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.node.current-user {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    border-color: var(--primary-dark);
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+}
+
+.node.current-user:hover {
+    transform: scale(1.08) translateY(-3px);
+}
+
+.node.expanded {
+    border-color: var(--success);
+    background: linear-gradient(135deg, #f0fdf4, white);
+}
+
+.node.collapsed {
+    border-color: var(--warning);
+    background: linear-gradient(135deg, #fffbeb, white);
+}
+
+.node.left-child {
+    border-left: 4px solid var(--success);
+}
+
+.node.right-child {
+    border-right: 4px solid var(--warning);
+}
+
+.node-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--gray-border);
+}
+
+.node.current-user .node-header {
+    border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+
+.node-id {
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--primary);
+}
+
+.node.current-user .node-id {
+    color: white;
+}
+
+.badge {
+    padding: 3px 6px;
+    border-radius: 6px;
+    font-size: 0.6rem;
+    font-weight: 700;
+    background: var(--primary);
+    color: white;
+}
+
+.badge.current-badge {
+    background: var(--success);
+}
+
+.badge.expand-badge {
+    background: var(--warning);
+}
+
+.node-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.info-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    padding: 2px 0;
+}
+
+.info-label {
+    color: var(--gray);
+    font-weight: 600;
+    font-size: 0.7rem;
+}
+
+.info-value {
+    color: var(--dark);
+    font-weight: 700;
+    background: var(--gray-light);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.7rem;
+    border: 1px solid var(--gray-border);
+    min-width: 40px;
+    text-align: center;
+}
+
+.node.current-user .info-label {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.node.current-user .info-value {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* وضعیت‌های مختلف */
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--gray);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+}
+
+.empty-icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    opacity: 0.7;
+}
+
+.loading, .error {
+    text-align: center;
+    padding: 30px 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 90%;
+}
+
+.loading {
+    color: var(--primary);
+    background: rgba(59, 130, 246, 0.05);
+    border: 1px solid var(--primary);
+}
+
+.error {
+    color: var(--accent);
+    background: rgba(239, 68, 68, 0.05);
+    border: 1px solid var(--accent);
+}
+
+/* رسپانسیو برای موبایل */
+@media (max-width: 768px) {
+    body {
+        padding: 5px;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+    
+    .header-content h1 {
+        font-size: 1.2rem;
+    }
+    
+    .wallet-section {
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .user-panel, .tree-panel {
+        padding: 12px;
+    }
+    
+    .tree-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .stats {
+        width: 100%;
+        justify-content: space-around;
+    }
+    
+    .controls {
+        flex-direction: column;
+    }
+    
+    .control-btn {
+        min-width: auto;
+    }
+    
+    .tree-container {
+        min-height: 500px;
+    }
+    
+    .binary-tree {
+        min-height: 500px;
+        padding: 15px;
+    }
+    
+    .tree-nodes {
+        min-height: 500px;
+    }
+    
+    .node {
+        min-width: 120px;
+        padding: 10px;
+    }
+    
+    .node-id {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-content h1 {
+        font-size: 1.1rem;
+    }
+    
+    .user-panel h2, .tree-panel h2 {
+        font-size: 1.1rem;
+    }
+    
+    .tree-container {
+        min-height: 400px;
+    }
+    
+    .binary-tree {
+        min-height: 400px;
+        padding: 10px;
+    }
+    
+    .tree-nodes {
+        min-height: 400px;
+    }
+    
+    .node {
+        min-width: 110px;
+        padding: 8px;
+    }
+    
+    .node-header {
+        margin-bottom: 5px;
+    }
+    
+    .node-id {
+        font-size: 0.9rem;
+    }
+    
+    .info-line {
+        font-size: 0.7rem;
+    }
+}
+
+/* اسکرول بار سفارشی */
+.tree-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.tree-container::-webkit-scrollbar-track {
+    background: var(--gray-light);
+    border-radius: 4px;
+}
+
+.tree-container::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 4px;
+}
+
+.tree-container::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
+}
