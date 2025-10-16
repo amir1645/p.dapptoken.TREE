@@ -1,66 +1,0 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
-    <title>ژنولوژی شبکه باینری</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vazirmatn@latest/Vazirmatn-font-face.css">
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
-</head>
-<body>
-    <div class="container">
-        <!-- Header -->
-        <header>
-            <div class="header-content">
-                <h1>🌳 ساختار درخت باینری</h1>
-                <div class="wallet-section">
-                    <button id="connectWallet" class="connect-btn">
-                        🔗 اتصال کیف پول
-                    </button>
-                    <div id="walletAddress" class="wallet-address">
-                        اتصال برقرار نشده
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <!-- Main Content -->
-        <main>
-            <!-- User Info -->
-            <div class="user-panel">
-                <h2>👤 اطلاعات شما</h2>
-                <div id="userInfo" class="user-info">
-                    <p>لطفاً کیف پول خود را متصل کنید</p>
-                </div>
-                
-                <div class="controls">
-                    <button id="expandAll" class="control-btn">📂 باز کردن همه</button>
-                    <button id="collapseAll" class="control-btn">📁 بستن همه</button>
-                    <button id="refreshTree" class="control-btn">🔄 بروزرسانی</button>
-                </div>
-            </div>
-
-            <!-- Tree -->
-            <div class="tree-panel">
-                <div class="tree-header">
-                    <h2>📊 ساختار درخت باینری</h2>
-                    <div class="stats">
-                        <span>کاربران: <strong id="userCount">0</strong></span>
-                        <span>سطوح: <strong id="networkDepth">0</strong></span>
-                    </div>
-                </div>
-
-                <div id="treeContainer" class="tree-container">
-                    <div class="empty-state">
-                        <div class="empty-icon">🌳</div>
-                        <p>پس از اتصال کیف پول، شبکه شما اینجا نمایش داده می‌شود</p>
-                    </div>
-                </div>
-            </div>
-        </main>
-    </div>
-
-    <script src="app.js"></script>
-</body>
-</html>
