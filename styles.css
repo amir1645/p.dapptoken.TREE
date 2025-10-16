@@ -1,0 +1,207 @@
+/* اضافه کردن این استایل‌ها به فایل styles.css */
+
+/* کنترل‌های زوم */
+.zoom-controls {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 1000;
+    background: white;
+    padding: 8px 12px;
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 2px solid var(--primary);
+}
+
+.zoom-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.zoom-btn:hover {
+    background: var(--primary-dark);
+    transform: scale(1.1);
+}
+
+.zoom-level {
+    font-weight: 700;
+    color: var(--dark);
+    font-size: 0.8rem;
+    min-width: 45px;
+    text-align: center;
+}
+
+/* کانتینر درخت */
+.tree-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.svg-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.tree-connections {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.nodes-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+
+/* بهبود نودها */
+.tree-node {
+    position: absolute;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.node {
+    background: white;
+    border: 3px solid var(--primary);
+    border-radius: 12px;
+    padding: 12px;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 140px;
+    position: relative;
+}
+
+.node:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+
+.node.current-user {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    border-color: var(--primary-dark);
+    transform: scale(1.1);
+    box-shadow: 0 8px 30px rgba(37, 99, 235, 0.4);
+    z-index: 200;
+}
+
+.node.current-user:hover {
+    transform: scale(1.15) translateY(-5px);
+}
+
+.node.expanded {
+    border-color: var(--success);
+    background: linear-gradient(135deg, #f0fdf4, white);
+}
+
+.node.collapsed {
+    border-color: var(--warning);
+    background: linear-gradient(135deg, #fffbeb, white);
+}
+
+.node.left-child {
+    border-left: 5px solid var(--success);
+}
+
+.node.right-child {
+    border-right: 5px solid var(--warning);
+}
+
+/* بهبود خطوط اتصال */
+.connection-line {
+    stroke-width: 3;
+    transition: all 0.3s ease;
+}
+
+/* اسکرول بار سفارشی */
+.tree-container::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+.tree-container::-webkit-scrollbar-track {
+    background: var(--gray-light);
+    border-radius: 6px;
+}
+
+.tree-container::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 6px;
+    border: 2px solid var(--gray-light);
+}
+
+.tree-container::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
+}
+
+/* نشانگر اسکرول */
+.tree-container {
+    cursor: grab;
+}
+
+.tree-container:active {
+    cursor: grabbing;
+}
+
+/* راهنمای زوم */
+.zoom-hint {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    z-index: 1000;
+}
+
+/* بهبود برای موبایل */
+@media (max-width: 768px) {
+    .zoom-controls {
+        top: 10px;
+        left: 10px;
+        padding: 6px 10px;
+    }
+    
+    .zoom-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 0.9rem;
+    }
+    
+    .zoom-level {
+        font-size: 0.7rem;
+        min-width: 40px;
+    }
+    
+    .node {
+        min-width: 120px;
+        padding: 10px;
+    }
+}
