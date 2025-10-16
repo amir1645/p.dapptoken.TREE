@@ -1,0 +1,444 @@
+/* متغیرهای رنگ */
+:root {
+    --primary: #3b82f6;
+    --primary-dark: #2563eb;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --accent: #ef4444;
+    --gray: #6b7280;
+    --gray-light: #f8fafc;
+    --gray-border: #e2e8f0;
+    --dark: #1e293b;
+}
+
+/* ریست استایل‌ها */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 8px;
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* استایل‌های هدر */
+header {
+    background: white;
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.header-content h1 {
+    color: var(--dark);
+    font-size: 1.2rem;
+    font-weight: 800;
+}
+
+.wallet-section {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.connect-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-family: 'Vazirmatn', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.connect-btn:hover:not(:disabled) {
+    background: var(--primary-dark);
+}
+
+.connect-btn:disabled {
+    background: var(--gray);
+    cursor: not-allowed;
+}
+
+.wallet-address {
+    background: var(--gray-light);
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-family: 'Courier New', monospace;
+    font-weight: 700;
+    color: var(--dark);
+    font-size: 0.75rem;
+    border: 1px solid var(--gray-border);
+}
+
+/* استایل‌های محتوای اصلی */
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.user-panel, .tree-panel {
+    background: white;
+    border-radius: 10px;
+    padding: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-panel h2, .tree-panel h2 {
+    color: var(--dark);
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+    font-weight: 800;
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 6px;
+}
+
+/* استایل‌های اطلاعات کاربر */
+.user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--gray-border);
+    font-size: 0.8rem;
+}
+
+.info-label {
+    color: var(--gray);
+    font-weight: 600;
+    font-size: 0.75rem;
+}
+
+.info-value {
+    color: var(--dark);
+    font-weight: 700;
+    background: var(--gray-light);
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.75rem;
+    border: 1px solid var(--gray-border);
+}
+
+/* کنترل‌ها */
+.controls {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.control-btn {
+    background: var(--gray-light);
+    border: 1px solid var(--gray-border);
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    flex: 1;
+    min-width: 80px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.control-btn:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+/* استایل‌های درخت */
+.tree-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.stats {
+    display: flex;
+    gap: 12px;
+    font-size: 0.8rem;
+    color: var(--gray);
+}
+
+.stats strong {
+    color: var(--primary);
+}
+
+.tree-container {
+    background: var(--gray-light);
+    border-radius: 8px;
+    border: 2px dashed var(--gray-border);
+    min-height: 500px;
+    overflow: auto;
+    position: relative;
+}
+
+/* درخت ساده */
+.simple-tree {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tree-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.nodes-container {
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.simple-node {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+/* نودهای ساده */
+.node-box {
+    background: white;
+    border: 2px solid var(--primary);
+    border-radius: 8px;
+    padding: 8px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 80px;
+    position: relative;
+}
+
+.node-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.node-box.current {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    border-color: var(--primary-dark);
+    transform: scale(1.05);
+}
+
+.node-box.left {
+    border-left: 3px solid var(--success);
+}
+
+.node-box.right {
+    border-right: 3px solid var(--warning);
+}
+
+.you-badge {
+    background: var(--success);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-size: 0.6rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.node-id {
+    font-weight: 800;
+    font-size: 0.9rem;
+    color: var(--primary);
+    margin-bottom: 4px;
+}
+
+.node-box.current .node-id {
+    color: white;
+}
+
+.node-links {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.link {
+    font-size: 0.6rem;
+    color: var(--gray);
+    font-weight: 600;
+}
+
+.node-box.current .link {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.expand-icon {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--warning);
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* وضعیت‌های مختلف */
+.empty-state {
+    text-align: center;
+    padding: 30px 15px;
+    color: var(--gray);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+}
+
+.empty-icon {
+    font-size: 2rem;
+    margin-bottom: 8px;
+    opacity: 0.7;
+}
+
+.loading, .error {
+    text-align: center;
+    padding: 20px 15px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    font-size: 0.9rem;
+}
+
+.loading {
+    color: var(--primary);
+    background: rgba(59, 130, 246, 0.05);
+    border: 1px solid var(--primary);
+}
+
+.error {
+    color: var(--accent);
+    background: rgba(239, 68, 68, 0.05);
+    border: 1px solid var(--accent);
+}
+
+/* اسکرول بار */
+.tree-container::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.tree-container::-webkit-scrollbar-track {
+    background: var(--gray-light);
+    border-radius: 3px;
+}
+
+.tree-container::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 3px;
+}
+
+.tree-container::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
+}
+
+/* موبایل */
+@media (max-width: 480px) {
+    body {
+        padding: 5px;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 6px;
+    }
+    
+    .header-content h1 {
+        font-size: 1.1rem;
+    }
+    
+    .user-panel, .tree-panel {
+        padding: 10px;
+    }
+    
+    .tree-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+    
+    .stats {
+        width: 100%;
+        justify-content: space-around;
+    }
+    
+    .controls {
+        flex-direction: column;
+    }
+    
+    .tree-container {
+        min-height: 400px;
+    }
+    
+    .node-box {
+        min-width: 70px;
+        padding: 6px;
+    }
+    
+    .node-id {
+        font-size: 0.8rem;
+    }
+    
+    .link {
+        font-size: 0.55rem;
+    }
+}
