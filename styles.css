@@ -1,0 +1,148 @@
+/* اضافه کردن این استایل‌ها به فایل styles.css */
+
+/* کنترل‌های زوم */
+.zoom-controls {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    background: white;
+    padding: 8px 12px;
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 2px solid var(--primary);
+}
+
+.zoom-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.zoom-btn:hover {
+    background: var(--primary-dark);
+    transform: scale(1.1);
+}
+
+.zoom-level {
+    font-weight: 700;
+    color: var(--dark);
+    font-size: 0.8rem;
+    min-width: 45px;
+    text-align: center;
+}
+
+/* بهبود استایل‌های درخت */
+.binary-tree-container {
+    position: relative;
+    width: 100%;
+    min-height: 800px; /* افزایش ارتفاع */
+    overflow: auto;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border-radius: 8px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.binary-nodes-container {
+    position: relative;
+    width: max-content;
+    min-width: 100%;
+    height: 100%;
+    min-height: 800px; /* افزایش ارتفاع */
+    padding: 50px; /* افزایش padding */
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+
+/* نودهای بزرگتر با فاصله بیشتر */
+.node.binary {
+    min-width: 130px; /* افزایش عرض */
+    background: white;
+    border: 3px solid var(--primary);
+    border-radius: 12px;
+    padding: 12px; /* افزایش padding */
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    font-size: 0.8rem;
+}
+
+/* فاصله بیشتر بین نودها */
+.binary-node {
+    margin: 10px;
+}
+
+/* بهبود خطوط اتصال */
+.connection-line {
+    stroke-width: 3;
+    transition: all 0.3s ease;
+}
+
+/* اسکرول بار بهتر */
+.tree-container::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+.tree-container::-webkit-scrollbar-track {
+    background: var(--gray-light);
+    border-radius: 6px;
+}
+
+.tree-container::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 6px;
+}
+
+.tree-container::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
+}
+
+/* بهبود نمایش در موبایل */
+@media (max-width: 768px) {
+    .zoom-controls {
+        top: 5px;
+        left: 5px;
+        padding: 6px 10px;
+    }
+    
+    .zoom-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 0.9rem;
+    }
+    
+    .zoom-level {
+        font-size: 0.7rem;
+        min-width: 40px;
+    }
+    
+    .binary-tree-container {
+        min-height: 600px;
+    }
+    
+    .binary-nodes-container {
+        min-height: 600px;
+        padding: 30px;
+    }
+    
+    .node.binary {
+        min-width: 110px;
+        padding: 10px;
+        font-size: 0.75rem;
+    }
+}
